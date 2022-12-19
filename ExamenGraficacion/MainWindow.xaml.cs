@@ -24,5 +24,20 @@ namespace ExamenGraficacion
         {
             InitializeComponent();
         }
+
+        private void StackPanel_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)e.OriginalSource;
+            string texto = b.Content.ToString();
+            switch(texto)
+            {
+                case "Tren":
+                    Trencito f = new Trencito();
+                    f.ShowDialog();
+                    break;
+
+            }
+            
+        }
     }
 }

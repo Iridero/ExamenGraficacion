@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:ExamenGraficacion"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas>
-       
-    </Canvas>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Padding" Value="10 5"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel Button.Click="StackPanel_Click">
+            <Button>Tren</Button>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="80" FontWeight="ExtraBold"
+                   >
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="Red"/>
+            </TextBlock.Foreground>
+            Graficación</TextBlock>
+    </DockPanel>
 </Window>

@@ -76,62 +76,93 @@
             </VisualBrush.Visual>
         </VisualBrush>
     </Window.Resources>
-    <Canvas>
-        <Polygon Fill="#ccc" Points="15,0 0,15 100,15 85,0" Canvas.Top="5" Canvas.Left="0" />
-        <Rectangle Width="25" Height="25" RadiusX="5" RadiusY="5" Canvas.Top="40" Canvas.Left="90" Fill="#777"/>
-        <Rectangle Width="25" Height="25" RadiusX="5" RadiusY="5" Canvas.Top="55" Canvas.Left="120" Fill="#555"/>
-        <Rectangle Width="10" Height="25" RadiusX="5" RadiusY="5" Fill="#ccc" Canvas.Top="40" Canvas.Left="170"/>
-        <Rectangle Width="20" Height="35" RadiusX="5" RadiusY="5" Fill="#ccc" Canvas.Top="30" Canvas.Left="190"/>
-        <Rectangle Width="30" Height="15" RadiusX="5" RadiusY="5" Canvas.Top="20" Canvas.Left="185" Fill="#777"/>
-        <Path Canvas.Left="20" Canvas.Top="20"
+    <Canvas x:Name="lienzo">
+        <Canvas Canvas.Top="100" >
+            <Canvas.RenderTransform>
+                <TranslateTransform x:Name="movTren" />
+            </Canvas.RenderTransform>
+            <Polygon Fill="#ccc" Points="15,0 0,15 100,15 85,0" Canvas.Top="5" Canvas.Left="0" />
+            <Rectangle Width="25" Height="25" RadiusX="5" RadiusY="5" Canvas.Top="40" Canvas.Left="90" Fill="#777"/>
+            <Rectangle Width="25" Height="25" RadiusX="5" RadiusY="5" Canvas.Top="55" Canvas.Left="120" Fill="#555"/>
+            <Rectangle Width="10" Height="25" RadiusX="5" RadiusY="5" Fill="#ccc" Canvas.Top="40" Canvas.Left="170"/>
+            <Rectangle Width="20" Height="35" RadiusX="5" RadiusY="5" Fill="#ccc" Canvas.Top="30" Canvas.Left="190"/>
+            <Rectangle Width="30" Height="15" RadiusX="5" RadiusY="5" Canvas.Top="20" Canvas.Left="185" Fill="#777"/>
+            <Path Canvas.Left="20" Canvas.Top="20"
               Data="M0,100
                     h220 
                     a30,30 0 0 0 0,-60 
                     h-160
                     v-40
                     h-60 z">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Offset="0" Color="OrangeRed"/>
-                    <GradientStop Offset="0.5" Color="OrangeRed"/>
-                    <GradientStop Offset="0.6" Color="Red"/>
-                    <GradientStop Offset="0.7" Color="Red"/>
-                    <GradientStop Offset="0.8" Color="DarkRed"/>
-                    <GradientStop Offset="1" Color="DarkRed"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Fill="DimGray" Canvas.Left="20" Canvas.Top="120"
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0" Color="OrangeRed"/>
+                        <GradientStop Offset="0.5" Color="OrangeRed"/>
+                        <GradientStop Offset="0.6" Color="Red"/>
+                        <GradientStop Offset="0.7" Color="Red"/>
+                        <GradientStop Offset="0.8" Color="DarkRed"/>
+                        <GradientStop Offset="1" Color="DarkRed"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path Fill="DimGray" Canvas.Left="20" Canvas.Top="120"
               Data="M0,0
                     v25
                     q0,20 20,20
                     h280
                     l-65,-45"/>
-        <Ellipse Width="60" Height="60" Fill="{StaticResource ruedaBrush}" Canvas.Left="50" Canvas.Top="135"/>
-        <Ellipse Width="60" Height="60" Fill="{StaticResource ruedaBrush}" Canvas.Left="120" Canvas.Top="135">
-            
-        </Ellipse>
-        <Ellipse Width="30" Height="30" Canvas.Top="165" Canvas.Left="200">
-            <Ellipse.Fill>
-                <RadialGradientBrush>
-                    <GradientStop Offset="0" Color="#ccc"/>
-                    <GradientStop Offset="0.4" Color="#ccc"/>
-                    <GradientStop Offset="0.4" Color="#666"/>
-                </RadialGradientBrush>
-            </Ellipse.Fill>
-        </Ellipse>
-        <Ellipse Width="30" Height="30" Canvas.Top="165" Canvas.Left="240" >
-            <Ellipse.Fill>
-                <RadialGradientBrush>
-                    <GradientStop Offset="0" Color="#ccc"/>
-                    <GradientStop Offset="0.4" Color="#ccc"/>
-                    <GradientStop Offset="0.4" Color="#666"/>
-                </RadialGradientBrush>
-            </Ellipse.Fill>
-        </Ellipse>
-        <Rectangle Fill="LightSkyBlue" Width="25" Height="25" Canvas.Top="30" Canvas.Left="55" />
-        <Rectangle Fill="LightSkyBlue" Width="25" Height="25" Canvas.Top="30" Canvas.Left="25" />
-        
+            <Ellipse Width="60" Height="60" RenderTransformOrigin="0.5,0.5" Fill="{StaticResource ruedaBrush}" Canvas.Left="50" Canvas.Top="135">
+                <Ellipse.RenderTransform>
+                    <RotateTransform x:Name="rotRueda1"/>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse Width="60" Height="60" Fill="{StaticResource ruedaBrush}" Canvas.Left="120" Canvas.Top="135">
+
+            </Ellipse>
+            <Ellipse Width="30" Height="30" Canvas.Top="165" Canvas.Left="200">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#ccc"/>
+                        <GradientStop Offset="0.4" Color="#ccc"/>
+                        <GradientStop Offset="0.4" Color="#666"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Width="30" Height="30" Canvas.Top="165" Canvas.Left="240" >
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#ccc"/>
+                        <GradientStop Offset="0.4" Color="#ccc"/>
+                        <GradientStop Offset="0.4" Color="#666"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle Fill="LightSkyBlue" Width="25" Height="25" Canvas.Top="30" Canvas.Left="55" />
+            <Rectangle Fill="LightSkyBlue" Width="25" Height="25" Canvas.Top="30" Canvas.Left="25" />
+        </Canvas>
+
+        <Canvas.Triggers>
+            <EventTrigger SourceName="lienzo" 
+                          RoutedEvent="Canvas.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="movTren"
+                            Storyboard.TargetProperty="X"
+                            Duration="0:0:10"
+                            From="0" To="500"
+                                         />
+                        <DoubleAnimation
+                            Storyboard.TargetName="rotRueda1"
+                            Storyboard.TargetProperty="Angle"
+                            Duration="0:0:2"
+                            RepeatBehavior="5x"
+                            From="0" To="360"/>
+                    </Storyboard>
+                    
+                </BeginStoryboard>
+            </EventTrigger>
+        </Canvas.Triggers>
     </Canvas>
-    
+
 </Window>
