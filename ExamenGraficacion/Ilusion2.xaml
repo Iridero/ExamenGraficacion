@@ -28,45 +28,92 @@
         </CombinedGeometry>
         <VisualBrush x:Key="anilloBrush">
             <VisualBrush.Visual>
-                
-        <Canvas Width="100" Height="100">
-            <Path Fill="Yellow" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
 
-            </Path>
-            <Path RenderTransformOrigin="0.5,0.5" Fill="Yellow" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
-                <Path.RenderTransform>
-                    <RotateTransform Angle="180"/>
-                </Path.RenderTransform>
+                <Canvas Width="100" Height="100">
+                    <Path Fill="Yellow" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
 
-            </Path>
-            <Path RenderTransformOrigin="0.5,0.5" Fill="Blue" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
-                <Path.RenderTransform>
-                    <RotateTransform Angle="90"/>
-                </Path.RenderTransform>
+                    </Path>
+                    <Path RenderTransformOrigin="0.5,0.5" Fill="Yellow" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="180"/>
+                        </Path.RenderTransform>
 
-            </Path>
-            <Path RenderTransformOrigin="0.5,0.5" Fill="Blue" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
-                <Path.RenderTransform>
-                    <RotateTransform Angle="270"/>
-                </Path.RenderTransform>
+                    </Path>
+                    <Path RenderTransformOrigin="0.5,0.5" Fill="Blue" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="90"/>
+                        </Path.RenderTransform>
 
-            </Path>
-        </Canvas>
+                    </Path>
+                    <Path RenderTransformOrigin="0.5,0.5" Fill="Blue" Width="100" Height="100" Data="{StaticResource anilloGeometry}">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="270"/>
+                        </Path.RenderTransform>
+
+                    </Path>
+                </Canvas>
             </VisualBrush.Visual>
         </VisualBrush>
     </Window.Resources>
-    <Canvas>
-        <Ellipse Width="100" Height="100" Fill="{StaticResource anilloBrush}"></Ellipse>
-        <Ellipse Width="100" Height="100" Fill="{StaticResource anilloBrush}" Canvas.Left="150"></Ellipse>
+    <Canvas x:Name="lienzo">
+        <Ellipse RenderTransformOrigin="0.5,0.5" Width="100" Height="100" Fill="{StaticResource anilloBrush}">
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="rotAnillo1" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse RenderTransformOrigin="0.5,0.5" Width="100" Height="100" Fill="{StaticResource anilloBrush}" Canvas.Left="150" >
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="rotAnillo2" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
         <Path Fill="Black" Width="30" Height="30" Data="M30,15 l-10,-10 v7 h-20 v6 h20 v7" RenderTransformOrigin="0.5,0.5" Canvas.Top="35" Canvas.Left="35">
             <Path.RenderTransform>
-                <RotateTransform />
+                <RotateTransform x:Name="rotFlecha1" />
             </Path.RenderTransform>
         </Path>
         <Path Fill="Black" Width="30" Height="30" Data="M30,15 l-10,-10 v7 h-20 v6 h20 v7" RenderTransformOrigin="0.5,0.5" Canvas.Top="35" Canvas.Left="185">
             <Path.RenderTransform>
-                <RotateTransform Angle="180" />
+                <RotateTransform x:Name="rotFlecha2" Angle="180" />
             </Path.RenderTransform>
         </Path>
+        <Canvas.Triggers>
+            <EventTrigger SourceName="lienzo" 
+                          RoutedEvent="Canvas.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                            Storyboard.TargetName="rotAnillo1"
+                            Storyboard.TargetProperty="Angle"
+                            Duration="0:0:1"
+                            From="0" To="360"
+                            RepeatBehavior="Forever"/>
+                        <DoubleAnimation 
+                            Storyboard.TargetName="rotAnillo2"
+                            Storyboard.TargetProperty="Angle"
+                            Duration="0:0:1"
+                            From="0" To="360"
+                            RepeatBehavior="Forever"/>
+                        <DoubleAnimationUsingKeyFrames
+                            Storyboard.TargetName="rotFlecha1"
+                            Storyboard.TargetProperty="Angle"
+                            RepeatBehavior="Forever">
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:2" Value="90"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:4" Value="180"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:6" Value="270"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:8" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames
+                            Storyboard.TargetName="rotFlecha2"
+                            Storyboard.TargetProperty="Angle"
+                            RepeatBehavior="Forever">
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:2" Value="270"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:6" Value="90"/>
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:8" Value="180"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Canvas.Triggers>
     </Canvas>
 </Window>

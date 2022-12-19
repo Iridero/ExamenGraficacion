@@ -39,6 +39,10 @@ namespace ExamenGraficacion
                     Ilusion f2=new Ilusion();
                     f2.ShowDialog();
                     break;
+                case "Ilusión 2":
+                    Ilusion2 f3=new Ilusion2();
+                    f3.ShowDialog();
+                    break;
             }
             
         }
