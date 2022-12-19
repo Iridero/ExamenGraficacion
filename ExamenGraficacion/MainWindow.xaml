@@ -15,6 +15,7 @@
     <DockPanel>
         <StackPanel Button.Click="StackPanel_Click">
             <Button>Tren</Button>
+            <Button>Ilusión 1</Button>
         </StackPanel>
         <TextBlock HorizontalAlignment="Center" 
                    VerticalAlignment="Center"

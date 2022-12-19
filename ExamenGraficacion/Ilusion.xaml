@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ExamenGraficacion"
         mc:Ignorable="d"
         Title="Ilusion" Height="450" Width="800">
+    
     <Canvas x:Name="lienzo">
         <Canvas Width="10" Height="300" Canvas.Top="70" Canvas.Left="400" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
@@ -87,6 +88,78 @@
                 </Ellipse.RenderTransform>
             </Ellipse>
         </Canvas>
-        
+        <Canvas.Triggers>
+            <EventTrigger SourceName="lienzo" 
+                          RoutedEvent="Canvas.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t1"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t2"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t3"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t4"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t5"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t6"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t7"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                        <DoubleAnimation 
+                            Storyboard.TargetName="t8"
+                            Storyboard.TargetProperty="Y"
+                            Duration="0:0:8"
+                            From="0" To="280"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Canvas.Triggers>
     </Canvas>
 </Window>

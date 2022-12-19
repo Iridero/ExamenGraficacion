@@ -35,7 +35,10 @@ namespace ExamenGraficacion
                     Trencito f = new Trencito();
                     f.ShowDialog();
                     break;
-
+                case "Ilusión 1":
+                    Ilusion f2=new Ilusion();
+                    f2.ShowDialog();
+                    break;
             }
             
         }
